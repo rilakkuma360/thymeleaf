@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+        <nav th:fragment="navbar" class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element clearfix"> 
+	                    	<span class="pull-left">
+	                            <img alt="image" class="img-circle" width="100px" src="img/logo.jpg" />
+	                        </span>
+	                        <span class="pull-right text-white m-t-lg	">XXX<br />医疗</span>
+	                    </div>
+                        <div class="logo-element">
+                            CMTC
+                        </div>
+                    </li>
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa fa-bank"></i> <span class="nav-label">首页</span></a>
+                    </li>
+                    <li>
+                        <a href="index_controller.html"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">图表分析</span></a>
+                    </li>
+                    <li>
+                        <a href="layouts.html"><i class="fa fa-th-large"></i> <span class="nav-label">业务受理</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="business_panel.html">业务一览</a></li>
+                            <li><a href="layouts.html">新增合同</a></li>
+                            <li><a href="contract_panel.html">预报价</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                    <a href="business_panel.html"><i class="fa fa-flask"></i> <span class="nav-label">实验室管理</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="task_allocation.html">检测任务一览</a></li>
+                        <li><a href="detailed_scheme.html">方案设计</a></li>
+                        <li><a href="data_entry.html">数据录入</a></li>
+                        <li><a href="report_production.html">报告制作</a></li>
+                        <li><a href="report_approval.html">报告批准</a></li>
+                        <li><a href="report_validate.html">报告审核</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="business_panel.html"><i class="fa fa-eyedropper"></i> <span class="nav-label">样品管理</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="sampleStorage.html">入库一览</a></li>
+                            <li><a href="warehousing.html">样品入库</a></li>
+                            <!--<li><a href="">检测领样</a></li>
+                            <li><a href="">检测归还</a></li>
+                            <li><a href="">样品出库</a></li>
+                            <li><a href="">样品调查</a></li>-->
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="business_panel.html"><i class="fa fa-cube"></i> <span class="nav-label">业务管理</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="report_pick-up.html">报告取件</a></li>
+                            <li><a href="report_file.html">报告归档</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="nuclearPrice.html"><i class="fa fa-money"></i> <span class="nav-label">财务核价</span></a>
+                    </li>
+                    <li>
+                        <a href="business_panel.html"><i class="fa fa-cube"></i> <span class="nav-label">系统设置</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="report_pick-up.html">用户管理</a></li>
+                            <!-- <li><a href="report_file.html">报告归档</a></li> -->
+                        </ul>
+                    </li>
+                    <!--<li>
+                        <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">模块四 </span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="#">功能一 <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="#">列表一</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">列表二</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">列表三</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li><a href="#">功能二</a></li>
+                            <li><a href="#">功能三</a></li>
+                        </ul>
+                    </li>-->
+                </ul>
+
+            </div>
+        </nav>
+</html>        

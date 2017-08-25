@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="pagehead(title1,title2,title3)"
+	class="row wrapper border-bottom white-bg page-heading">
+	<div class="col-sm-10">
+		<h2 th:text="${title1}">首页</h2>
+		<ol class="breadcrumb">
+			<li><a href="index.html" th:text="${title2}">首页</a></li>
+			<li class="active"><strong th:text="${title3}">首页</strong></li>
+		</ol>
+	</div>
+	<div class="col-sm-2"></div>
+</div>
+</html>        

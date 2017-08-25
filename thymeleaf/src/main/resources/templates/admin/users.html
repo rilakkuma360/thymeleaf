@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragment/header :: head(首页)"></head>
+<body>
+    <div id="wrapper">
+		<nav th:replace="fragment/navbar :: navbar"></nav>
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div th:replace="fragment/page_navbar :: pagenavbar"></div>
+            <div th:replace="fragment/page_header :: pagehead(空白1,空白2,空白3)"></div>
+            <!-- start -->
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="ibox float-e-margins">
+                        <form id="">
+                            <div class="ibox-title">
+                                <h5><i class="fa fa-bookmark b-g-c"></i>&nbsp;&nbsp;高级检索</h5>
+                                <div class="ibox-tools">
+                                    <a class="fullscreen-link" >
+                                        <i class="fa fa-expand"></i>
+                                    </a>
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <div class="col-sm-2">
+                                            <label>姓名：</label>
+                                            <input type="text" id="name" name="name" value="" placeholder="" class="form-control">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label>账号：</label>
+                                            <input type="text" id="account" name="account" value="" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ibox-footer">
+                                <button type="button" id="search" class="btn btn-primary"><i class="fa fa-search"></i>&nbsp;查询</button>
+                            </div>
+                        </form>   
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5><i class="fa fa-bookmark b-g-c"></i>&nbsp;&nbsp;结果一览</h5>
+                                <div class="ibox-tools">
+                                    <a class="fullscreen-link" >
+                                        <i class="fa fa-expand"></i>
+                                    </a>
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="table-responsive" >
+		                            <table id="businessTable" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+		                                <thead>
+		                                    <tr>
+		                                        <th style="width: 10%;">姓名</th>
+		                                        <th style="width: 10%;">账号</th>
+		                                        <th style="width: 10%;">密码</th>
+		                                        <th style="width: 10%;">日期</th>
+		                                    </tr>
+		                                </thead>
+		                                <tbody>
+		                                	<tr>
+		                                		<td title="2013-0021">2013-0021</td>
+		                                		<td title="顺丰">顺丰</td>
+		                                		<td title="12345678">12345678</td>
+		                                		<td title="血糖仪">血糖仪</td>
+		                                	</tr>
+		                                </tbody>        
+		                            </table>
+		                        </div>
+                            </div>
+                            <div class="ibox-footer">
+                                <button type="button" class="btn btn-primary color-black" data-toggle="modal" data-target="#myModal7"><i class="fa fa-plus"></i>&nbsp;添加</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+            <!-- end -->
+            <div th:replace="fragment/page_footer :: copy"></div>
+        </div>
+    </div>
+
+<!-- Mainly scripts -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+
+<script src="js/plugins/dataTables/datatables.min.js"></script>
+
+<!-- Date range picker -->
+<script src="js/plugins/daterangepicker/daterangepicker.js"></script>
+
+<!-- Data picker -->
+<script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+<script src="js/plugins/dataTables/datatables.min.js"></script>
+
+<script src="js/plugins/scrollTop/scrolltopcontrol.js"></script>
+
+<script>
+    $(document).ready(function(){
+    	
+        var table = $('#businessTable').DataTable({
+            sDom: "<'row'<'col-md-6 col-sm-6'p><'col-md-6 col-sm-6'f>r>t",
+            pageLength: 5,
+            bSort: false,
+            bFilter : false,
+            bAutoWidth: false,
+            oLanguage: {
+                oPaginate: {
+                    sNext: '下一页',
+                    sPrevious: '上一页'
+                },
+                sEmptyTable: '表中没有可用的数据'
+            },
+            
+            "processing": false,
+            "serverSide": true,
+            
+            "ajax": {
+            	"url": "rest/users",
+            	"data": function ( d ) {
+                    //d.myKey = "myValue";
+                    d.name = $('#name').val();
+                    d.account = $('#account').val();
+                    // etc
+                }
+            	
+            },
+            
+            columns: [
+                      {"data": "name"},
+                      {"data": "account"},
+                      {"data": "password"},
+                      {"data": "date"}
+                  ],
+            
+            
+        });
+        
+        //查询
+        $("#search").click(function() {
+			
+        	table.ajax.reload();
+        	
+        })
+        
+/*         $('.input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+ */
+    });
+
+</script>
+
+</body>
+</html>
