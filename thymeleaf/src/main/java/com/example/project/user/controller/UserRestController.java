@@ -46,6 +46,7 @@ public class UserRestController {
 		
 		SysUser suser = new SysUser();
 		suser.setUserName(StringUtils.isEmpty(search.getName())?null:search.getName());
+		suser.setAccount(StringUtils.isEmpty(search.getAccount())?null:search.getAccount());
 		Example<SysUser> example = Example.of(suser);
 		
 		Page<SysUser> page = sysUserRepository.findAll(example, pageable);
