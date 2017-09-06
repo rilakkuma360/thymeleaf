@@ -8,7 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+
+import com.example.project.role.entity.SysRole;
 
 @Entity
 public class SysUser {

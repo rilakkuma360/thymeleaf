@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.project.login.domain.LoginUser;
-import com.example.project.user.entity.SysRole;
+import com.example.project.role.entity.SysRole;
 import com.example.project.user.entity.SysUser;
 import com.example.project.user.repository.SysUserRepository;
 
