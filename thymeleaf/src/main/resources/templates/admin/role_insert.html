@@ -51,7 +51,7 @@
                     <div class="col-sm-12">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <h5><i class="fa fa-bookmark b-g-c"></i>&nbsp;&nbsp;角色一览</h5>
+                                <h5><i class="fa fa-bookmark b-g-c"></i>&nbsp;&nbsp;添加角色</h5>
                                 <div class="ibox-tools">
                                     <a class="fullscreen-link" >
                                         <i class="fa fa-expand"></i>
@@ -62,62 +62,11 @@
                                 </div>
                             </div>
                             <div class="ibox-content">
-                                <div class="table-responsive" >
-									<nav>
-										<ul class="pagination">
-											<li th:if="${page.first}" class='disabled'><a href="javascript:void(0);"><span>上一页</span></a></li>
-											<li th:if="${not page.first}"><a th:href="@{${'/roles'}(page=${page.number-1},size=${page.size})}"><span>上一页</span></a></li>
-											<li th:each="pageNo : ${#numbers.sequence(0, page.totalPages - 1)}" th:class="${page.number eq pageNo}? 'active'">
-												<a th:href="@{${'/roles'}(page=${pageNo},size=${page.size})}"><span th:text="${pageNo + 1}"></span></a>
-											</li>
-											<li th:if="${page.last}" class='disabled'><a href="javascript:void(0);"><span>下一页</span></a></li>
-											<li th:if="${not page.last}"><a th:href="@{${'/roles'}(page=${page.number+1},size=${page.size})}"><span>下一页</span></a></li>
-										</ul>
-									</nav>
-									<!-- 
-									<div class="btn-group">
-										<button type="button" class="btn btn-white" th:classappend="${page.first}?'disabled'">
-											<i class="fa fa-chevron-left"></i>
-										</button>
-										<button class="btn btn-white">1</button>
-										<button class="btn btn-white  active">2</button>
-										<button class="btn btn-white">3</button>
-										<button class="btn btn-white">4</button>
-										<button type="button" class="btn btn-white">
-											<i class="fa fa-chevron-right"></i>
-										</button>
-									</div> -->
-									<!-- dataTable start -->
-		                            <table id="businessTable" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
-		                                <thead>
-		                                    <tr>
-		                                        <th style="width: 10%;">角色</th>
-		                                        <th style="width: 10%;">权限</th>
-		                                        <th style="width: 10%;">备注</th>
-		                                        <th style="width: 10%;">操作</th>
-		                                    </tr>
-		                                </thead>
-		                                <tbody>
-											<tr th:if="${page.content.empty}">
-												<td colspan="4">没有数据</td>
-											</tr>
-											<tr th:each="item : ${page.content}">
-		                                		<td th:text="${item.name}">角色</td>
-		                                		<td th:text="${item.description}">权限</td>
-		                                		<td th:text="${item.comment}">备注</td>
-		                                		<td title="name">
-		                                			<button data-click="edit" class="btn btn-primary btn-xs"><i class="fa fa-pencil m-l-5 m-r-5"></i><span>编辑</span></button>
-		                                			<button data-click="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o m-l-5 m-r-5"></i><span>删除</span></button>
-												</td>
-		                                	</tr>
-		                                </tbody>        
-		                            </table>
-		                            <!-- dataTable start -->
-		                        </div>
+                                添加角色
                             </div>
                             <div class="ibox-footer">
                                 <!-- <button type="button" class="btn btn-primary color-black" data-toggle="modal" data-target="#myModal7"><i class="fa fa-plus"></i>&nbsp;添加</button> -->
-                            	<button type="button" class="btn btn-primary color-black" id="insert"><i class="fa fa-plus"></i>&nbsp;添加</button>
+                            	<button type="button" class="btn btn-primary color-black" id="insertModal"><i class="fa fa-plus"></i>&nbsp;添加</button>
                             </div>
                         </div>
                     </div>
@@ -151,11 +100,16 @@
 <script>
     $(document).ready(function(){
     	    	        
-        $("#insert").click(function() {
+       
+        
+
+        
+        //查询
+/*         $("#search").click(function() {
 			
-        	location.href = "/role_insert";
+        	table.ajax.reload();
         	
-        })
+        }) */
         
         //修改
        /*  $('#businessTable tbody').on( 'click', 'button[data-click="edit"]', function () {

@@ -21,10 +21,14 @@ public class SysRole {
 	
 	private String name;
 	
+	//权限描述
 	private String description;
 	
+	//备注
+	private String comment;
+	
 	@OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
-	private List<Authority> authoritys;
+	private List<SysAuthority> authoritys;
 
 	public Long getId() {
 		return id;
@@ -50,12 +54,22 @@ public class SysRole {
 		this.description = description;
 	}
 
-	public List<Authority> getAuthoritys() {
+
+
+	public List<SysAuthority> getAuthoritys() {
 		return authoritys;
 	}
 
-	public void setAuthoritys(List<Authority> authoritys) {
+	public void setAuthoritys(List<SysAuthority> authoritys) {
 		this.authoritys = authoritys;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 	
 	

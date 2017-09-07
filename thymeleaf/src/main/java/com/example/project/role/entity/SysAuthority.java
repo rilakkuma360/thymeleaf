@@ -5,11 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Authority {
+public class SysAuthority {
 	
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	private String name;
 	
 	private String authority;
 
@@ -28,7 +30,13 @@ public class Authority {
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
-	
-	
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 }
