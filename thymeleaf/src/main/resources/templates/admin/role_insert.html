@@ -62,8 +62,38 @@
                                 </div>
                             </div>
                             <div class="ibox-content">
-                                添加角色
-                            </div>
+								<div class="table-responsive">
+									<div id="businessTable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+										<table id="businessTable"
+											class="table table-striped table-bordered table-hover dataTable no-footer"
+											cellspacing="0" width="100%" role="grid">
+											<thead>
+												<tr>
+													<th style="width: 5%">
+														<div class="checkbox checkbox-primary">
+															<input id="cb" type="checkbox"><label for="cb"></label>
+														</div>
+													</th>
+													<th style="width: 15%">模块权限</th>
+													<th>描述</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<div class="checkbox checkbox-primary">
+															<input id="cb1" type="checkbox" value=""><label
+																for="cb1"></label>
+														</div>
+													</td>
+													<td title="2016">2016</td>
+													<td title="2016-0001">2016-0001</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
                             <div class="ibox-footer">
                                 <!-- <button type="button" class="btn btn-primary color-black" data-toggle="modal" data-target="#myModal7"><i class="fa fa-plus"></i>&nbsp;添加</button> -->
                             	<button type="button" class="btn btn-primary color-black" id="insertModal"><i class="fa fa-plus"></i>&nbsp;添加</button>
